@@ -1,48 +1,40 @@
 <x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+    <x-auth-card-layout routeName="password.update" title="Reset Password" subtitle="Reset Your Password">
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+        <h3 class="text-xl text-gray-700 font-bold mb-6">
+            Reset <span class="text-gray-400 font-light">your password below</span>
+        </h3>
 
-        <form method="POST" action="{{ route('password.update') }}">
-            @csrf
+        <!-- Password Reset Token -->
+        <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
-            <!-- Password Reset Token -->
-            <input type="hidden" name="token" value="{{ $request->route('token') }}">
+        <!-- Email Address -->
+        <x-input id="email" type="email"  name="email" :value="old('email')"
+                 required autofocus placeholder="Email Address"
+                 class="px-3 w-full py-2 bg-gray-200 border border-gray-200 rounded focus:border-gray-400 focus:outline-none focus:bg-white mb-4 {{ $errors->has('email') ? ' border-red' : '' }}"
+        />
 
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
+        <!-- Password -->
+        <x-input id="password" type="password"
+                 name="password" required placeholder="Password"
+                 class="px-3 w-full py-2 bg-gray-200 border border-gray-200 rounded focus:border-gray-400 focus:outline-none focus:bg-white mb-4 {{ $errors->has('password') ? ' border-red' : '' }}"
+        />
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus />
-            </div>
+        <!-- Confirm Password -->
+        <x-input id="password-confirm" type="password"
+                 name="password_confirmation" required placeholder="Confirm Password"
+                 class="px-3 w-full py-2 bg-gray-200 border border-gray-200 rounded focus:border-gray-400 focus:outline-none focus:bg-white mb-4 "
+        />
 
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required />
-            </div>
-
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                    type="password"
-                                    name="password_confirmation" required />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <x-button>
+        <div class="flex flex-wrap items-center">
+            <div class="w-full sm:flex-1">
+                <x-button value="Reset Password"
+                          class="w-full sm:w-auto bg-indigo-500 text-indigo-100 px-6 py-2 rounded hover:bg-indigo-600 focus:outline-none cursor-pointer"
+                >
                     {{ __('Reset Password') }}
                 </x-button>
             </div>
-        </form>
-    </x-auth-card>
+        </div>
+
+    </x-auth-card-layout>
 </x-guest-layout>

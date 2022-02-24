@@ -17,10 +17,9 @@
   <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 <body>
-  <div class="font-sans bg-gray-100 antialiased flex justify-end">
-    <a href="{{ route('login') }}" class="text-gray-700 hover:text-gray-900 px-4 py-2">Login</a>
-    <a href="{{ route('register') }}" class="text-gray-700 hover:text-gray-900 px-4 py-2">Register</a>
-  </div>
+
+  @include('partials.nav')
+
   <div class="font-sans text-gray-900 antialiased">
     {{ $slot }}
   </div>
