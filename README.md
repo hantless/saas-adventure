@@ -1,6 +1,6 @@
 <p style="text-align: center;">
     <a href="https://saasadventure.io" target="_blank">
-        <img src="https://saasadventure.io/img/logo-icon.png" style="height: 100px">
+        <img src="https://saasadventure.io/img/saas-dark-logo.png" style="height: 100px">
     </a>
 </p>
 
