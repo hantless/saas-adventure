@@ -15,9 +15,31 @@
         <img src="/img/logo.png" class="h-full mt-1" alt="We Teach Logo">
       </a>
       <ul class="text-sm text-grey-dark list-reset flex items-center">
-        <button class="text-white ml-4 py-2 px-6 rounded bg-gray-800 font-bold hidden sm:block bg-indigo-600"
-                id="signup_btn">Signup to Get Notified
-        </button>
+        <li class="mr-8">
+          <a href="/" class="font-semibold text-pink-500">
+            Home
+          </a>
+        </li>
+        <li class="mr-8">
+          <a href="#" class="font-semibold text-gray-900 hover:text-pink-500">
+            Features
+          </a>
+        </li>
+        <li class="mr-8">
+          <a href="#" class="font-semibold text-gray-900 hover:text-pink-500">
+            Pricing
+          </a>
+        </li>
+        <li class="mr-8">
+          <a href="#" class="font-semibold text-gray-900 hover:text-pink-500">
+            FAQ
+          </a>
+        </li>
+        <li>
+          <a href="{{ route('login') }}" class="text-white ml-4 py-2 px-6 rounded bg-gray-800 font-bold hidden sm:block bg-indigo-600">
+            Login
+          </a>
+        </li>
       </ul>
     </nav>
   </div>
